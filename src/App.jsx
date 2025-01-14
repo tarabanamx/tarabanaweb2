@@ -7,7 +7,8 @@ import "aos/dist/aos.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import chapu from "./assets/images/chapu.png";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./login.jsx";
+import Login from "./login";
+
 import Contact from "./Contact";
 import team1 from "./assets/images/team1.png";
 import team2 from "./assets/images/team2.png";
