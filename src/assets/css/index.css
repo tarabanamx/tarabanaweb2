@@ -121,74 +121,124 @@ button:hover {
   color: #555;
 }
 
-/* Features Section */
-#features {
-  padding: 60px 20px;
-  background: linear-gradient(145deg, #001b34, #001f3f);
-  text-align: center;
-}
-
-#features h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 40px;
-}
-
-#features .col-md-4 {
-  margin-bottom: 30px;
-}
-
-#features i {
-  font-size: 3rem;
-  color: #4facfe;
-  margin-bottom: 15px;
-}
-
-#features h4 {
-  font-size: 1.5rem;
-  color: #ffffff;
-}
-
-#features p {
-  font-size: 1rem;
-  color: #c7c7c7;
-}
-
-/*  Sección Equipo   */
-/* Team Section */
+/*  Sección Equipo y Features combinada  */
+/* Equipo - Tarjetas */
+/* Equipo y Features - Fondo */
 #team {
-  padding: 60px 20px;
-  background: linear-gradient(145deg, #001f3f, #001b34);
+  background: linear-gradient(145deg, #001f3f, #002d6f);
+  padding: 80px 20px;
+  color: white;
 }
 
+/* Títulos */
 #team h2 {
   font-size: 2.5rem;
   font-weight: bold;
+  margin-bottom: 50px;
   color: #4facfe;
-  margin-bottom: 40px;
 }
 
-.team-member {
-  background: #002d6f;
+/* Equipo - Tarjetas */
+.team-card {
+  background: linear-gradient(145deg, #ffffff, #f1f1f1);
+  color: #333;
+  border-radius: 20px;
   padding: 20px;
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  text-align: center;
-  color: white;
-  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.team-member:hover {
+.team-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-.team-photo {
-  width: 150px;
-  height: 150px;
+.team-card img {
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 15px;
+}
+
+.team-card h5 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #001f3f;
+  margin-bottom: 5px;
+}
+
+.team-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Botón de flecha para expandir */
+.team-card button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: #4facfe;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.team-card button:hover {
+  background: #003d99;
+}
+
+/* Contenido expandido */
+.team-card .expanded-content {
+  display: none;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 15px;
+}
+
+.team-card.expanded .expanded-content {
+  display: block;
+}
+
+/* Features - Tarjetas */
+.feature-card {
+  background: linear-gradient(145deg, #ffffff, #f1f1f1);
+  text-align: center;
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card i {
+  font-size: 3rem;
+  color: #4facfe;
+  margin-bottom: 20px;
+}
+
+.feature-card h4 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #001f3f;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #555;
 }
 
 /*   Seccion track record */
@@ -336,59 +386,211 @@ blockquote {
   margin-bottom: 20px;
 }
 
-/*   Seccion columnas hasta abajo */
+/* Sección Columnas */
+/* Sección Columnas */
 #columns {
   background: linear-gradient(145deg, #001f3f, #002d6f);
   color: #ffffff;
-  padding: 100px 20px;
+  padding: 300px 40px; /* Expandir el área */
 }
 
 #columns h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   color: #4facfe;
 }
 
-..column-card {
-  background: #002d6f;
+/* Tarjetas */
+.column-card-container {
+  transition: all 0.3s ease-in-out;
+}
+
+.column-card-container.expanded {
+  flex: 0 0 100%; /* Expande la tarjeta */
+  max-width: 100%;
+}
+
+.column-card {
+  background: #003b80; /* Contrasta con el background */
   color: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 30px;
+  border-radius: 20px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   text-align: center;
-  will-change: transform, box-shadow; /* Optimización de transición */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  will-change: transform, box-shadow; /* Optimización */
+  position: relative;
 }
 
 .column-card i {
   color: #4facfe;
+  margin-bottom: 10px;
 }
 
-.column-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Footer Section */
-footer {
-  background: linear-gradient(145deg, #001b34, #001f3f);
-  color: white;
-  padding: 20px 0;
-}
-
-footer h5 {
-  font-size: 1.2rem;
+.column-card h5 {
+  font-size: 1rem; /* Texto más pequeño */
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-footer a {
+/* Botón Expandir */
+.btn-expand {
+  background: #4facfe;
+  color: white;
+  border: none;
+  border-radius: 50%; /* Botón completamente redondo */
+  padding: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-expand:hover {
+  transform: scale(1.1);
+  background: #002d6f;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenido Expandido */
+.expanded-content {
+  margin-top: 20px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.expanded-content p {
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+/* Botón Cerrar */
+.btn-close {
+  background: #ff4b5c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.btn-close:hover {
+  background: #c70039;
+}
+
+/* Tarjeta Hover */
+.column-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.column-card:hover .btn-expand {
+  background: #003b80;
+  color: #ffffff;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  #columns {
+    padding: 200px 20px; /* Ajuste para pantallas más pequeñas */
+  }
+
+  .column-card-container.expanded {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .column-card {
+    margin-bottom: 20px;
+  }
+
+  .btn-expand,
+  .btn-close {
+    font-size: 1rem;
+    padding: 8px;
+  }
+}
+
+/* Footer Section */
+/* Footer Section */
+.footer-section {
+  background: linear-gradient(145deg, #001b34, #001f3f);
+  padding: 140px 0; /* Reducido 30% */
+  color: white;
+  font-size: 0.9rem;
+}
+
+.footer-section h5 {
+  font-size: 1.3rem; /* Ajustado ligeramente */
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer-section a {
   color: white;
   text-decoration: none;
 }
 
-footer a:hover {
+.footer-section a:hover {
   color: #4facfe;
+  text-decoration: underline;
+}
+
+.footer-section .small {
+  color: #c7c7c7;
+  font-size: 0.85rem;
+}
+
+.footer-section p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* Logotipo */
+.footer-logo {
+  width: 120px; /* Más pequeño */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Línea Inferior */
+.footer-line {
+  border-top: 1px solid #4facfe;
+  margin: 20px auto;
+  width: 60%; /* Centrada y más delgada */
+}
+
+.footer-emoji {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #4facfe;
+  font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-section .row > div {
+    margin-bottom: 20px;
+  }
+
+  .footer-line {
+    width: 80%; /* Más ancho en pantallas pequeñas */
+  }
 }
 
 /*   LOGO SMALL */

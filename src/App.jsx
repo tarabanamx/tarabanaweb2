@@ -9,6 +9,12 @@ import chapu from "./assets/images/chapu.png";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Login";
 import Contact from "./Contact";
+import team1 from "./assets/images/team1.png";
+import team2 from "./assets/images/team2.png";
+import team3 from "./assets/images/team3.png";
+import team4 from "./assets/images/team4.png";
+import team5 from "./assets/images/team5.png";
+import team6 from "./assets/images/team6.png";
 
 const achievements = [
   { title: "Proyectos Financiados", value: "+50", icon: "fas fa-chart-line" },
@@ -172,7 +178,7 @@ const Home = () => {
             Acerca de Nosotros
           </h2>
           <p className="text-muted" data-aos="fade-up">
-            MXC CApital es una Banca de Inversión Independiente con amplía
+            MXC Capital es una Banca de Inversión Independiente con amplía
             experiencia en levantamiento de capital con AFORES, transacciones
             públicas y privadas, emisiones de deuda en el mercado mexicano y
             levantamiento de capital privado. En MXC Capital, transformamos el
@@ -186,50 +192,51 @@ const Home = () => {
           />
         </div>
       </section>
-      {/* Equipo Section */}
-      <section id="team" className="py-5 text-center bg-dark text-white">
+      {/* Equipo y Features Section */}
+      {/* Equipo y Features Section */}
+      <section id="team" className="text-center">
         <div className="container">
-          <h2 className="mb-4" data-aos="fade-up">
-            Nuestro Equipo
-          </h2>
+          <h2 data-aos="fade-up">Nuestro Equipo</h2>
           <div className="row">
             {[
               {
                 name: "Luis Armando Alvarez",
                 position: "Founding Managing Partner",
-                img: "/assets/images/team1.jpg",
+                img: team1,
                 bio: "Luis lidera MXC Capital con una visión estratégica y un enfoque en innovación.",
               },
               {
                 name: "Paulina Ezquerra San Martin",
                 position: "Managing Partner",
-                img: "./assets/images/team2.jpg",
-                bio: "Paulina tiene experiencia sobresaliente liderando IPOs en Sector Fibras en México y BMV",
+                img: team2,
+                bio: "Paulina tiene experiencia sobresaliente liderando IPOs en el sector de Fibras en México y BMV.",
               },
               {
                 name: "Guillermo Del Camino",
-                position: "CTO",
-                img: "./assets/images/team3.jpg",
-                bio: "Guillermo lidera la tecnología, transformando procesos y creando soluciones innovadoras.",
+                position: "Asociado",
+                img: team3,
+                bio: "Guillermo lidera el análisis para los proyectos de Banca de Inversión.",
               },
               {
                 name: "Pedro Serrano",
-                position: "CMO",
-                img: "./assets/images/team4.jpg",
-                bio: "María dirige nuestras estrategias de marketing y fortalece nuestra marca.",
+                position: "Analista Senior",
+                img: team4,
+                bio: "Pedro apoya en la estructuración y ejecución de estrategias financieras complejas.",
               },
               {
                 name: "Paulina Alvarez",
                 position: "Analista Senior",
-                img: "./assets/images/team5.jpg",
-                bio: "Fernando analiza datos críticos para la toma de decisiones informadas.",
+                img: team5,
+                bio: "Paulina realiza análisis detallados para proyectos de inversión y mercados financieros.",
               },
               {
                 name: "Juan Barreto",
-                position: "Gerente de Proyectos",
-                img: "./assets/images/team6.jpg",
-                bio: "Sofía gestiona proyectos clave, asegurando su éxito y calidad.",
+                position: "Analista",
+                img: team6,
+                bio: "Juan gestiona tareas clave en proyectos de análisis y ejecución financiera.",
               },
+
+              // Agrega más miembros según sea necesario
             ].map((member, index) => (
               <div
                 className="col-md-4 col-lg-4 mb-4"
@@ -237,51 +244,67 @@ const Home = () => {
                 data-aos="fade-up"
               >
                 <div
-                  className="team-member"
-                  onClick={() => alert(`Bio: ${member.bio}`)}
+                  className={`team-card ${member.expanded ? "expanded" : ""}`}
+                  onClick={() => (member.expanded = !member.expanded)}
                 >
                   <img
                     src={member.img}
                     alt={member.name}
-                    className="img-fluid rounded-circle team-photo"
+                    className="img-fluid"
                   />
-                  <h5 className="mt-3">{member.name}</h5>
+                  <h5>{member.name}</h5>
                   <p>{member.position}</p>
+                  <button>
+                    <i className="fas fa-chevron-down"></i>
+                  </button>
+                  <div className="expanded-content">
+                    <p>{member.bio}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="container mt-5">
+          <h2 data-aos="fade-up">Un equipo experimentado en:</h2>
+          <div className="row">
+            {[
+              {
+                icon: "fas fa-lightbulb",
+                title: "Originación",
+                description:
+                  "Proyectos top con impacto estratégico y sostenible.",
+              },
+              {
+                icon: "fas fa-cogs",
+                title: "Estructura",
+                description:
+                  "Definimos y optimizamos estructuras transparentes.",
+              },
+              {
+                icon: "fas fa-check-circle",
+                title: "Ejecución",
+                description: "No hacemos fumble. Nuestra reputación habla.",
+              },
+            ].map((feature, index) => (
+              <div
+                className="col-md-4 mb-4"
+                key={index}
+                data-aos="fade-up"
+                data-aos-delay={index * 200}
+              >
+                <div className="feature-card">
+                  <i className={feature.icon}></i>
+                  <h4>{feature.title}</h4>
+                  <p>{feature.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-      {/* Oferta - Features Section */}
-      <section id="features" className="py-5 text-center">
-        <div className="container">
-          <h2 className="mb-4">¿Por qué elegirnos?</h2>
-          <div className="row">
-            <div className="col-md-4">
-              <i className="fas fa-shield-alt fa-3x text-primary mb-3"></i>
-              <h4>Seguridad</h4>
-              <p className="text-muted">
-                Tu información está protegida con estándares de seguridad.
-              </p>
-            </div>
-            <div className="col-md-4">
-              <i className="fas fa-rocket fa-3x text-primary mb-3"></i>
-              <h4>Rapidez</h4>
-              <p className="text-muted">
-                Procesos eficientes para tus necesidades financieras.
-              </p>
-            </div>
-            <div className="col-md-4">
-              <i className="fas fa-thumbs-up fa-3x text-primary mb-3"></i>
-              <h4>Confiabilidad</h4>
-              <p className="text-muted">
-                Cientos de clientes satisfechos nos respaldan.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+
       {/*  Track Record */}
       <section id="track" className="py-5 text-center bg-light">
         <div className="container">
@@ -382,47 +405,108 @@ const Home = () => {
         </div>
       </section>
 
-      {/*   Seccion Columnas    */}
+      {/* Sección Columnas */}
+      {/* Sección Columnas */}
       <section id="columns" className="py-5 text-center" data-aos="fade-up">
-        <div className="container">
+        <div className="container expanded-section">
           <h2 className="mb-5">Explora Más</h2>
           <div className="row justify-content-center">
             {[
-              { title: "Capital Privado & CERPIS", icon: "fas fa-chart-line" },
-              { title: "Deuda Estructurada", icon: "fas fa-users" },
+              {
+                title: "Capital Privado & CERPIS",
+                icon: "fas fa-chart-line",
+                details:
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              },
+              {
+                title: "Deuda Estructurada",
+                icon: "fas fa-users",
+                details:
+                  "Suspendisse potenti. Integer vehicula est non urna consequat.",
+              },
               {
                 title: "Bursatilizaciones de Cartera",
                 icon: "fas fa-briefcase",
+                details:
+                  "Donec euismod augue non nulla vestibulum, id hendrerit leo.",
               },
-              { title: "IPOs a través de BMV", icon: "fas fa-cogs" },
-              { title: "Deuda Quirografaría", icon: "fas fa-globe" },
-            ].map((item, index) => (
-              <div
-                className="col-md-2 mx-3 mb-4"
-                data-aos="fade-up"
-                data-aos-delay={index * 100} // Configuración consistente
-                key={index}
-              >
-                <div className="column-card p-3">
-                  <i className={`${item.icon} fa-2x mb-3`}></i>
-                  <h5>{item.title}</h5>
+              {
+                title: "IPOs a través de BMV",
+                icon: "fas fa-cogs",
+                details: "Cras ut ligula id sapien fringilla ultricies.",
+              },
+              {
+                title: "Deuda Quirografaría",
+                icon: "fas fa-globe",
+                details: "Praesent nec eros a orci ultrices varius.",
+              },
+            ].map((item, index) => {
+              const [expanded, setExpanded] = useState(false);
+
+              return (
+                <div
+                  className={`col-md-3 mx-3 mb-4 column-card-container ${
+                    expanded ? "expanded" : ""
+                  }`}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100} // Configuración consistente
+                  key={index}
+                >
+                  <div className="column-card p-4">
+                    <i className={`${item.icon} fa-3x mb-3`}></i>
+                    <h5 className="card-title">{item.title}</h5>
+                    {!expanded && (
+                      <button
+                        className="btn-expand"
+                        onClick={() => setExpanded(!expanded)}
+                      >
+                        <i className="fas fa-search"></i>
+                      </button>
+                    )}
+                    {expanded && (
+                      <div className="expanded-content">
+                        <p>{item.details}</p>
+                        <button
+                          className="btn-close"
+                          onClick={() => setExpanded(!expanded)}
+                        >
+                          <i className="fas fa-times"></i>
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/*   Footer  */}
-      <footer className="py-5 bg-dark text-white">
+      {/* Footer */}
+      <footer className="footer-section text-white">
         <div className="container">
+          {/* Logotipo */}
+          <div className="row justify-content-center mb-4">
+            <div className="col-md-4 text-center">
+              <img
+                src={logoMxcBlanco}
+                alt="Logotipo de MXC Capital"
+                className="footer-logo"
+              />
+            </div>
+          </div>
+
+          {/* Información Principal */}
           <div className="row">
-            <div className="col-md-4">
+            {/* Contacto */}
+            <div className="col-md-3">
               <h5>Contacto</h5>
               <p>Tel: +52 123 456 7890</p>
               <p>Email: contacto@mxccapital.com.mx</p>
             </div>
-            <div className="col-md-4">
+
+            {/* Enlaces */}
+            <div className="col-md-3">
               <h5>Enlaces</h5>
               <ul className="list-unstyled">
                 <li>
@@ -431,35 +515,67 @@ const Home = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#features"
-                    className="text-white text-decoration-none"
-                  >
-                    Oferta
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-4">
-              <h5>Enlaces</h5>
-              <ul className="list-unstyled">
-                <li>
-                  <a href="#about" className="text-white text-decoration-none">
-                    Acerca de
+                  <a href="#equipo" className="text-white text-decoration-none">
+                    Equipo
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#features"
-                    className="text-white text-decoration-none"
-                  >
-                    Oferta
+                  <a href="#track" className="text-white text-decoration-none">
+                    Track Record
                   </a>
                 </li>
               </ul>
             </div>
 
-            <div className="col-md-4">
+            {/* Alianzas */}
+            <div className="col-md-3">
+              <h5>Alianzas</h5>
+              <ul className="list-unstyled">
+                <li>
+                  <a
+                    href="https://www.pimx.com.mx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white text-decoration-none"
+                  >
+                    PiMX Fondo de Deuda
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.crowdlink.mx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white text-decoration-none"
+                  >
+                    Crowdlink
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.soporteimpulsa.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white text-decoration-none"
+                  >
+                    Soporte Impulsa
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.vepormas.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white text-decoration-none"
+                  >
+                    VePorMás
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Síguenos */}
+            <div className="col-md-3">
               <h5>Síguenos</h5>
               <a href="#" className="text-white me-3">
                 <i className="fab fa-facebook-f"></i>
@@ -471,6 +587,23 @@ const Home = () => {
                 <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
+          </div>
+
+          {/* Derechos Reservados */}
+          <div className="row mt-4">
+            <div className="col text-center">
+              <p className="small">
+                © 2025 MXC Capital. Todos los derechos reservados.
+              </p>
+            </div>
+          </div>
+
+          {/* Línea Inferior */}
+          <div className="footer-bottom text-center mt-3">
+            <hr className="footer-line" />
+            <p className="footer-emoji">
+              Construyendo tu éxito con nosotros 📈
+            </p>
           </div>
         </div>
       </footer>
