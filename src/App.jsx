@@ -6,6 +6,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import chapu from "./assets/images/chapu.png";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "./Login";
+import Contact from "./Contact";
 
 const achievements = [
   { title: "Proyectos Financiados", value: "+50", icon: "fas fa-chart-line" },
@@ -21,9 +24,9 @@ const achievements = [
 
 const transactions = [
   {
-    img: "./assets/images/transaction1.jpg",
-    title: "Financiamiento para Proyecto Solar",
-    description: "Apoyamos el desarrollo de un parque solar en México.",
+    img: "./assets/images/mac.png",
+    title: "Línea de Crédito con Banca de Desarrollo",
+    description: "Para Hospitales Mac México.",
   },
   {
     img: "./assets/images/transaction2.jpg",
@@ -75,20 +78,20 @@ const transactions = [
 // Importar la imagen
 import logoMxcBlanco from "./assets/images/logomxc-blanco.png";
 
-const App = () => {
+const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  // Initialize AOS
   useEffect(() => {
     AOS.init({
-      duration: 600, // Animación más rápida
-      easing: "ease-out-cubic", // Efecto suave
-      once: true, // Permanece visible después de aparecer
+      duration: 600, // Duración de animaciones
+      easing: "ease-out-cubic",
+      once: true, // Animar solo una vez
     });
+    AOS.refreshHard(); // Asegura que detecte cambios dinámicos
   }, []);
 
   return (
@@ -134,8 +137,14 @@ const App = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a href="#contact" className="nav-link">
+                <a href="/contact" className="nav-link">
                   Contacto
+                </a>
+              </li>
+
+              <li className="nav-item">
+                <a href="/login" className="btn btn-outline-light ms-3">
+                  Login
                 </a>
               </li>
             </ul>
@@ -163,9 +172,12 @@ const App = () => {
             Acerca de Nosotros
           </h2>
           <p className="text-muted" data-aos="fade-up">
-            En MXC Capital, transformamos el acceso al capital mediante
-            estrategias innovadoras y un equipo comprometido con el éxito de
-            nuestros clientes.
+            MXC CApital es una Banca de Inversión Independiente con amplía
+            experiencia en levantamiento de capital con AFORES, transacciones
+            públicas y privadas, emisiones de deuda en el mercado mexicano y
+            levantamiento de capital privado. En MXC Capital, transformamos el
+            acceso al capital mediante estrategias innovadoras y un equipo
+            comprometido con el éxito de nuestros clientes.
           </p>
           <img
             src={logoMxcBlanco}
@@ -329,52 +341,16 @@ const App = () => {
           </div>
         </div>
       </section>
-      {/* Contact Section */}
-      <section id="contact" className="py-5 bg-dark text-white text-center">
-        <div className="container">
-          <h2 className="mb-4">Contáctanos</h2>
-          <form className="row g-3">
-            <div className="col-md-6">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Nombre"
-                required
-              />
-            </div>
-            <div className="col-md-6">
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Correo"
-                required
-              />
-            </div>
-            <div className="col-12">
-              <textarea
-                className="form-control"
-                placeholder="Mensaje"
-                rows="5"
-                required
-              ></textarea>
-            </div>
-            <div className="col-12">
-              <button type="submit" className="btn btn-primary">
-                Enviar
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
+      {/* Contact Section en otro view */}
+
       {/*  Testimonials  */}
       <section
         id="testimonials"
         className="py-5 bg-dark text-white text-center"
+        data-aos="fade-up"
       >
         <div className="container">
-          <h2 className="mb-4" data-aos="fade-up">
-            Testimonios
-          </h2>
+          <h2 className="mb-4">Testimonios</h2>
           <div className="row">
             {[
               {
@@ -388,7 +364,12 @@ const App = () => {
                 name: "María Gómez",
               },
             ].map((testimonial, index) => (
-              <div className="col-md-6" data-aos="fade-up" key={index}>
+              <div
+                className="col-md-6"
+                data-aos="fade-up"
+                data-aos-delay={index * 100} // Sin retrasos excesivos
+                key={index}
+              >
                 <blockquote className="blockquote">
                   <p>"{testimonial.quote}"</p>
                   <footer className="blockquote-footer">
@@ -400,27 +381,26 @@ const App = () => {
           </div>
         </div>
       </section>
+
       {/*   Seccion Columnas    */}
-      <section id="columns" className="py-5 text-center">
+      <section id="columns" className="py-5 text-center" data-aos="fade-up">
         <div className="container">
           <h2 className="mb-5">Explora Más</h2>
           <div className="row justify-content-center">
             {[
-              { title: "Capital Privado", icon: "fas fa-chart-line" },
+              { title: "Capital Privado & CERPIS", icon: "fas fa-chart-line" },
               { title: "Deuda Estructurada", icon: "fas fa-users" },
               {
                 title: "Bursatilizaciones de Cartera",
                 icon: "fas fa-briefcase",
               },
-              {
-                title: "Initial Public Offering a través de BMV",
-                icon: "fas fa-cogs",
-              },
+              { title: "IPOs a través de BMV", icon: "fas fa-cogs" },
               { title: "Deuda Quirografaría", icon: "fas fa-globe" },
             ].map((item, index) => (
               <div
                 className="col-md-2 mx-3 mb-4"
                 data-aos="fade-up"
+                data-aos-delay={index * 100} // Configuración consistente
                 key={index}
               >
                 <div className="column-card p-3">
@@ -432,6 +412,7 @@ const App = () => {
           </div>
         </div>
       </section>
+
       {/*   Footer  */}
       <footer className="py-5 bg-dark text-white">
         <div className="container">
@@ -445,8 +426,8 @@ const App = () => {
               <h5>Enlaces</h5>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#about" className="text-white text-decoration-none">
-                    Acerca de
+                  <a href="#pimx" className="text-white text-decoration-none">
+                    Acerca de PiMX
                   </a>
                 </li>
                 <li>
@@ -494,6 +475,18 @@ const App = () => {
         </div>
       </footer>
     </div>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 };
 

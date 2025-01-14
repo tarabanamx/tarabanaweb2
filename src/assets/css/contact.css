@@ -1,0 +1,28 @@
+.contact-section {
+  background: linear-gradient(145deg, #001f3f, #002d6f);
+  color: #ffffff;
+  padding: 60px 20px;
+  min-height: 100vh;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.contact-section .form-label {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.contact-section .btn-primary {
+  background: linear-gradient(145deg, #1e90ff, #00bfff);
+  border: none;
+}
+
+.contact-section .btn-primary:hover {
+  background: linear-gradient(145deg, #004d99, #1e90ff);
+}
