@@ -15,6 +15,12 @@ import team3 from "./assets/images/team3.png";
 import team4 from "./assets/images/team4.png";
 import team5 from "./assets/images/team5.png";
 import team6 from "./assets/images/team6.png";
+import contigo from "./assets/images/contigo.png";
+import mac from "./assets/images/mac.png";
+import totalplay from "./assets/images/totalplay.png";
+import elektra from "./assets/images/elektra.png";
+import fortem from "./assets/images/fortem.png";
+import dila from "./assets/images/dila.png";
 
 const achievements = [
   { title: "Proyectos Financiados", value: "+50", icon: "fas fa-chart-line" },
@@ -306,64 +312,82 @@ const Home = () => {
       </section>
 
       {/*  Track Record */}
-      <section id="track" className="py-5 text-center bg-light">
+      {/* Track Record */}
+      <section id="track" className="py-5 text-center">
         <div className="container">
           <h2 className="mb-5" data-aos="fade-up">
             Track Record
           </h2>
           <div className="row justify-content-center">
-            {achievements.map((item, index) => (
+            {[
+              {
+                img: contigo,
+                financingType: "Deuda Privada",
+                amount: "$500 Millones MXN",
+                year: "2023",
+                role: "Asesor y Estructurador",
+              },
+              {
+                img: elektra,
+                financingType: "Deuda Pública",
+                amount: "$1,200 Millones MXN",
+                year: "2022",
+                role: "Asesor y Estructurador",
+              },
+              {
+                img: dila,
+                financingType: "Capital Privado",
+                amount: "$800 Millones MXN",
+                year: "2021",
+                role: "Asesor y Estructurador",
+              },
+              {
+                img: totalplay,
+                financingType: "Deuda Pública",
+                amount: "$300 Millones MXN",
+                year: "2020",
+                role: "Asesor y Estructurador",
+              },
+              {
+                img: fortem,
+                financingType: "Otra",
+                amount: "$700 Millones MXN",
+                year: "2023",
+                role: "Asesor y Estructurador",
+              },
+              {
+                img: mac,
+                financingType: "Otra",
+                amount: "$700 Millones MXN",
+                year: "2023",
+                role: "Asesor y Estructurador",
+              },
+            ].map((transaction, index) => (
               <div
-                className="col-md-2 mx-3 mb-4"
+                className="col-md-4 mx-3 mb-4"
                 key={index}
                 data-aos="fade-up"
-                data-aos-delay={`${index * 100}`}
+                data-aos-delay={index * 100}
               >
-                <div className="track-card">
-                  <i
-                    className={`${item.icon} fa-3x mb-3`}
-                    style={{ color: "#4facfe" }}
-                  ></i>
-                  <h3 className="track-value">{item.value}</h3>
-                  <p className="track-title">{item.title}</p>
+                <div className="track-card p-4">
+                  <img
+                    src={transaction.img}
+                    alt={transaction.financingType}
+                    className="img-fluid track-logo mb-3"
+                  />
+                  <h5 className="track-financing-type">
+                    {transaction.financingType}
+                  </h5>
+                  <p className="track-amount">{transaction.amount}</p>
+                  <p className="track-year">Año: {transaction.year}</p>
+                  <p className="track-role">{transaction.role}</p>
                 </div>
               </div>
             ))}
-            {/* Transacciones Representativas */}
-            <div className="transactions mt-5">
-              <h3 className="mb-4" data-aos="fade-up">
-                Transacciones Representativas
-              </h3>
-              <div className="row">
-                {transactions.map((transaction, index) => (
-                  <div
-                    className="col-md-4 mb-4"
-                    key={index}
-                    data-aos="fade-up"
-                    data-aos-delay={`${index * 100}`}
-                  >
-                    <div className="transaction-card">
-                      <img
-                        src={transaction.img}
-                        alt={transaction.title}
-                        className="img-fluid transaction-img"
-                      />
-                      <div className="transaction-content p-3">
-                        <h5 className="transaction-title">
-                          {transaction.title}
-                        </h5>
-                        <p className="transaction-description">
-                          {transaction.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>
+
       {/* Contact Section en otro view */}
 
       {/*  Testimonials  */}
@@ -416,68 +440,48 @@ const Home = () => {
                 title: "Capital Privado & CERPIS",
                 icon: "fas fa-chart-line",
                 details:
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  "Exploramos estructuras de capital privado para maximizar oportunidades de inversión y desarrollo.",
               },
               {
                 title: "Deuda Estructurada",
                 icon: "fas fa-users",
                 details:
-                  "Suspendisse potenti. Integer vehicula est non urna consequat.",
+                  "Creamos soluciones personalizadas de deuda estructurada para proyectos a gran escala.",
               },
               {
                 title: "Bursatilizaciones de Cartera",
                 icon: "fas fa-briefcase",
                 details:
-                  "Donec euismod augue non nulla vestibulum, id hendrerit leo.",
+                  "Optimizamos activos mediante procesos transparentes y estructurados para garantizar eficiencia.",
               },
               {
                 title: "IPOs a través de BMV",
                 icon: "fas fa-cogs",
-                details: "Cras ut ligula id sapien fringilla ultricies.",
+                details:
+                  "Facilitamos el acceso al mercado público a través de IPOs diseñadas estratégicamente.",
               },
               {
                 title: "Deuda Quirografaría",
                 icon: "fas fa-globe",
-                details: "Praesent nec eros a orci ultrices varius.",
+                details:
+                  "Diseñamos soluciones de deuda quirografaria adaptadas a las necesidades específicas de nuestros clientes.",
               },
-            ].map((item, index) => {
-              const [expanded, setExpanded] = useState(false);
-
-              return (
-                <div
-                  className={`col-md-3 mx-3 mb-4 column-card-container ${
-                    expanded ? "expanded" : ""
-                  }`}
-                  data-aos="fade-up"
-                  data-aos-delay={index * 100} // Configuración consistente
-                  key={index}
-                >
-                  <div className="column-card p-4">
-                    <i className={`${item.icon} fa-3x mb-3`}></i>
-                    <h5 className="card-title">{item.title}</h5>
-                    {!expanded && (
-                      <button
-                        className="btn-expand"
-                        onClick={() => setExpanded(!expanded)}
-                      >
-                        <i className="fas fa-search"></i>
-                      </button>
-                    )}
-                    {expanded && (
-                      <div className="expanded-content">
-                        <p>{item.details}</p>
-                        <button
-                          className="btn-close"
-                          onClick={() => setExpanded(!expanded)}
-                        >
-                          <i className="fas fa-times"></i>
-                        </button>
-                      </div>
-                    )}
+            ].map((item, index) => (
+              <div
+                className="col-md-4 mx-3 mb-4 column-card-container"
+                data-aos="fade-up"
+                data-aos-delay={index * 100} // Configuración consistente
+                key={index}
+              >
+                <div className="column-card p-4">
+                  <i className={`${item.icon} fa-3x mb-3`}></i>
+                  <h5 className="card-title">{item.title}</h5>
+                  <div className="expanded-content">
+                    <p>{item.details}</p>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>

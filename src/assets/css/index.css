@@ -242,30 +242,35 @@ button:hover {
 }
 
 /*   Seccion track record */
-
 /* Track Record Section */
 #track {
-  background: linear-gradient(145deg, #ffffff, #f9f9f9);
-  padding: 60px 20px;
+  background: linear-gradient(145deg, #4b6584, #2c3e50); /* Fondo metálico */
+  color: #ffffff;
+  padding: 80px 40px; /* Espacio más amplio */
 }
 
 #track h2 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: bold;
-  color: #001f3f;
-  margin-bottom: 40px;
+  color: #ffffff;
+  margin-bottom: 50px;
+  text-transform: uppercase;
 }
 
-/* Cards in Track Record */
+/* Tarjetas de Track Record */
 .track-card {
-  background: linear-gradient(145deg, #001f3f, #002d6f);
+  background: linear-gradient(
+    145deg,
+    #3c4858,
+    #2c3e50
+  ); /* Fondo metálico para tarjetas */
   color: white;
-  padding: 20px;
-  border-radius: 15px;
+  padding: 30px;
+  border-radius: 20px; /* Bordes redondeados */
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   height: 100%;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
 .track-card:hover {
@@ -273,102 +278,54 @@ button:hover {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Icon Styling */
-.track-card i {
-  color: #4facfe;
+/* Estilo de Logotipo */
+.track-logo {
+  max-width: 100px;
+  height: auto;
   margin-bottom: 15px;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Value Styling */
-.track-value {
-  font-size: 2.5rem;
+.track-card:hover .track-logo {
+  transform: scale(1.1); /* Animación de zoom */
+}
+
+/* Tipo de Financiamiento */
+.track-financing-type {
+  font-size: 1.3rem;
   font-weight: bold;
-  color: #ffffff;
+  color: #4facfe;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
-/* Title Styling */
-.track-title {
-  font-size: 1.1rem;
-  color: #d9d9d9;
+/* Monto y Año */
+.track-amount,
+.track-year,
+.track-role {
+  font-size: 1rem;
+  color: #dcdde1;
+  margin-bottom: 5px;
 }
 
+/* Responsivo */
 @media (max-width: 768px) {
+  #track {
+    padding: 60px 20px;
+  }
+
   .track-card {
-    margin-bottom: 20px;
-  }
-}
-
-/* Transacciones Representativas */
-.transactions {
-  margin-top: 40px;
-}
-
-.transactions h3 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #001f3f;
-  margin-bottom: 30px;
-}
-
-/* Tarjetas de Transacciones */
-/* Transacciones Representativas */
-.transactions {
-  margin-top: 40px;
-}
-
-.transactions h3 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #001f3f;
-  margin-bottom: 30px;
-}
-
-/* Tarjetas de Transacciones */
-.transaction-card {
-  background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.transaction-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.transaction-img {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.transaction-content {
-  text-align: left;
-}
-
-.transaction-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #001f3f;
-  margin-bottom: 10px;
-}
-
-.transaction-description {
-  font-size: 0.9rem;
-  color: #555555;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .transaction-card {
-    margin-bottom: 20px;
+    padding: 20px;
   }
 
-  .transaction-img {
-    height: 150px;
+  .track-financing-type {
+    font-size: 1.2rem;
+  }
+
+  .track-amount,
+  .track-year,
+  .track-role {
+    font-size: 0.9rem;
   }
 }
 
@@ -391,134 +348,87 @@ blockquote {
 #columns {
   background: linear-gradient(145deg, #001f3f, #002d6f);
   color: #ffffff;
-  padding: 300px 40px; /* Expandir el área */
+  padding: 600px 40px; /* Duplicamos el área */
 }
 
 #columns h2 {
-  font-size: 2.5rem;
+  font-size: 2.8rem; /* Tamaño ligeramente mayor */
   font-weight: bold;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
   color: #4facfe;
+  text-transform: uppercase;
 }
 
-/* Tarjetas */
+/* Contenedor de Tarjetas */
 .column-card-container {
   transition: all 0.3s ease-in-out;
-}
-
-.column-card-container.expanded {
-  flex: 0 0 100%; /* Expande la tarjeta */
-  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .column-card {
   background: #003b80; /* Contrasta con el background */
   color: white;
-  padding: 30px;
-  border-radius: 20px;
+  padding: 40px;
+  border-radius: 25px; /* Bordes más redondeados */
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   text-align: center;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-  will-change: transform, box-shadow; /* Optimización */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  height: 100%; /* Asegura consistencia en altura */
   position: relative;
 }
 
 .column-card i {
   color: #4facfe;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 3.5rem; /* Ícono más prominente */
 }
 
 .column-card h5 {
-  font-size: 1rem; /* Texto más pequeño */
+  font-size: 1.2rem; /* Texto más pequeño */
   font-weight: bold;
-  margin-bottom: 15px;
-}
-
-/* Botón Expandir */
-.btn-expand {
-  background: #4facfe;
-  color: white;
-  border: none;
-  border-radius: 50%; /* Botón completamente redondo */
-  padding: 10px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.btn-expand:hover {
-  transform: scale(1.1);
-  background: #002d6f;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 /* Contenido Expandido */
 .expanded-content {
   margin-top: 20px;
   text-align: left;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+  padding: 25px;
+  border-radius: 15px;
 }
 
 .expanded-content p {
-  font-size: 0.9rem;
-  color: #ffffff;
-}
-
-/* Botón Cerrar */
-.btn-close {
-  background: #ff4b5c;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 8px;
   font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.btn-close:hover {
-  background: #c70039;
+  color: #ffffff;
+  line-height: 1.5;
 }
 
 /* Tarjeta Hover */
 .column-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-}
-
-.column-card:hover .btn-expand {
-  background: #003b80;
-  color: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
   #columns {
-    padding: 200px 20px; /* Ajuste para pantallas más pequeñas */
-  }
-
-  .column-card-container.expanded {
-    flex: 0 0 100%;
-    max-width: 100%;
+    padding: 400px 20px; /* Ajuste para pantallas más pequeñas */
   }
 
   .column-card {
-    margin-bottom: 20px;
+    padding: 20px;
   }
 
-  .btn-expand,
-  .btn-close {
-    font-size: 1rem;
-    padding: 8px;
+  .column-card i {
+    font-size: 3rem; /* Ícono más pequeño en pantallas pequeñas */
+  }
+
+  .expanded-content p {
+    font-size: 0.9rem;
   }
 }
 
