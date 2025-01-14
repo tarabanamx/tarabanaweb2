@@ -9,7 +9,7 @@ import chapu from "./assets/images/chapu.png";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./login";
 
-import Contact from "./Contact";
+import Contact from "./contact";
 import team1 from "./assets/images/team1.png";
 import team2 from "./assets/images/team2.png";
 import team3 from "./assets/images/team3.png";
