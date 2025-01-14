@@ -197,7 +197,7 @@ const Home = () => {
               {
                 name: "Luis Armando Alvarez",
                 position: "Founding Managing Partner",
-                img: "./assets/images/team1.jpg",
+                img: "/assets/images/team1.jpg",
                 bio: "Luis lidera MXC Capital con una visión estratégica y un enfoque en innovación.",
               },
               {
