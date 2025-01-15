@@ -1,43 +1,60 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import "./assets/css/login.css";
+import logoMxcBlanco from "./assets/images/logomxc-blanco.png"; // Asegúrate de que la ruta sea correcta
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Lógica de autenticación
-    alert(`Bienvenido, ${username}`);
-  };
-
   return (
-    <div className="login-container text-center bg-light py-5">
-      <h2>Iniciar Sesión</h2>
-      <form className="form-signin mx-auto mt-4" onSubmit={handleSubmit}>
-        <div className="form-group mb-3">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Usuario"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
+    <div>
+      {/* Navbar */}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container">
+          <img
+            src={logoMxcBlanco}
+            alt="Logotipo de MXC Capital"
+            className="logo-small"
           />
+          <Link to="/" className="navbar-brand"></Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <Link to="/" className="nav-link">
+                  Inicio
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className="form-group mb-3">
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+      </nav>
+
+      {/* Login Section */}
+      <div className="login-section">
+        <div className="login-form">
+          <h2>Portal en Desarrollo</h2>
+          <p>Lanzamiento Junio 2025</p>
         </div>
-        <button type="submit" className="btn btn-primary btn-block">
-          Ingresar
-        </button>
-      </form>
+      </div>
+
+      {/* Footer */}
+      <footer className="py-4 bg-dark text-white text-center">
+        <div className="container">
+          <p>
+            © {new Date().getFullYear()} MXC Capital. Todos los derechos
+            reservados.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
