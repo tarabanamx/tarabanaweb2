@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/navbar.css";
 import "./assets/css/index.css";
+import "./assets/css/login.css";
+import "./assets/css/contact.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
