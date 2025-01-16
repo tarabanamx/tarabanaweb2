@@ -3,11 +3,10 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  base: "./", // Asegura que las rutas sean relativas
   build: {
-    rollupOptions: {
-      input: "./src/main.jsx",
-    },
+    outDir: "dist", // Directorio de salida para el build
+    assetsDir: "assets", // Directorio para recursos estáticos
   },
-  assetsInclude: ["**/*.png", "**/*.jpg", "**/*.jpeg", "**/*.gif"], // Asegura que las imágenes sean incluidas
-  base: "./", // Asegura rutas relativas
+  assetsInclude: ["**/*.jpg", "**/*.png", "**/*.gif", "**/*.svg", "**/*.webp"], // Incluye formatos adicionales
 });
