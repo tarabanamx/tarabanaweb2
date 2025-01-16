@@ -4,7 +4,7 @@ body {
   padding: 0;
   font-family: "Roboto", sans-serif;
   color: #ffffff;
-  background-color: #0d1b2a;
+  background-color: black;
 }
 
 html {
@@ -29,9 +29,9 @@ h6 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #ffffff;
-  background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 45, 111, 0.6)),
-    url("/src/assets/images/chapu.png") no-repeat center center/cover;
+  color: #f5f5f5; /* Blanco suave */
+  background: linear-gradient(rgba(85, 107, 47, 0.8), rgba(107, 142, 35, 0.6)),
+    url("./src/assets/images/meda.png") no-repeat center center/cover;
   background-blend-mode: overlay;
   box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
 }
@@ -55,7 +55,7 @@ h6 {
 
 /* Global Button Styles */
 button {
-  background-color: #1e90ff;
+  background-color: #6b8e23; /* Verde olivo */
   color: white;
   padding: 10px 20px;
   border: none;
@@ -67,7 +67,7 @@ button {
 }
 
 button:hover {
-  background-color: #004d99;
+  background-color: #556b2f; /* Verde olivo más oscuro */
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
@@ -241,91 +241,99 @@ button:hover {
   color: #555;
 }
 
-/*   Seccion track record */
-/* Track Record Section */
-#track {
-  background: linear-gradient(145deg, #4b6584, #2c3e50); /* Fondo metálico */
-  color: #ffffff;
-  padding: 80px 40px; /* Espacio más amplio */
-}
-
-#track h2 {
-  font-size: 2.8rem;
-  font-weight: bold;
-  color: #ffffff;
-  margin-bottom: 50px;
-  text-transform: uppercase;
-}
-
-/* Tarjetas de Track Record */
-.track-card {
-  background: linear-gradient(
-    145deg,
-    #3c4858,
-    #2c3e50
-  ); /* Fondo metálico para tarjetas */
-  color: white;
-  padding: 30px;
-  border-radius: 20px; /* Bordes redondeados */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+/* Sección Línea - Cervezas */
+/* Línea Section - Mejorada */
+.linea-section {
+  padding: 120px 40px; /* Área más amplia */
+  background: linear-gradient(145deg, #2c3e50, #556b2f),
+    url("../assets/images/beer-background.png") no-repeat center center/cover;
+  background-blend-mode: overlay;
+  color: #f5f5f5;
   text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  height: 100%;
 }
 
-.track-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-}
-
-/* Estilo de Logotipo */
-.track-logo {
-  max-width: 100px;
-  height: auto;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.track-card:hover .track-logo {
-  transform: scale(1.1); /* Animación de zoom */
-}
-
-/* Tipo de Financiamiento */
-.track-financing-type {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #4facfe;
-  margin-bottom: 10px;
+/* Título de la Sección */
+.linea-section h2 {
+  font-size: 2.8rem;
+  font-weight: 300; /* Letra delgada */
+  color: #a8d08d;
+  margin-bottom: 60px;
   text-transform: uppercase;
 }
 
-/* Monto y Año */
-.track-amount,
-.track-year,
-.track-role {
-  font-size: 1rem;
-  color: #dcdde1;
+/* Grid para las Cervezas */
+.beer-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  ); /* Rejilla adaptable */
+  gap: 25px;
+  justify-items: center;
+  align-items: start;
+}
+
+/* Tarjetas de Cerveza */
+.beer-card {
+  background: #ffffff;
+  color: #2c3e50;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  width: 100%;
+  max-width: 260px; /* Tamaño uniforme */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.beer-card:hover {
+  transform: scale(1.08); /* Zoom ligero */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  background-color: #e8f5e9;
+}
+
+/* Icono de cerveza */
+.beer-icon {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #6b8e23; /* Verde vibrante */
+  font-size: 3rem; /* Icono más grande */
+}
+
+/* Texto en las Tarjetas */
+.beer-name {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #556b2f;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.beer-name:hover {
+  color: #2c3e50;
+}
+
+.beer-style,
+.beer-abv,
+.beer-ibu,
+.beer-hops {
+  font-size: 0.9rem; /* Letra más pequeña */
+  font-weight: 300;
+  line-height: 1.5;
   margin-bottom: 5px;
+  color: #2f4f4f;
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
-  #track {
-    padding: 60px 20px;
+  .linea-section {
+    padding: 100px 20px; /* Reducimos espacio para móviles */
   }
 
-  .track-card {
-    padding: 20px;
-  }
-
-  .track-financing-type {
-    font-size: 1.2rem;
-  }
-
-  .track-amount,
-  .track-year,
-  .track-role {
-    font-size: 0.9rem;
+  .linea-section h2 {
+    font-size: 2rem;
   }
 }
 
@@ -343,92 +351,115 @@ blockquote {
   margin-bottom: 20px;
 }
 
-/* Sección Columnas */
-/* Sección Columnas */
-#columns {
-  background: linear-gradient(145deg, #001f3f, #002d6f);
+/* Sección history */
+/* Sección Historia */
+.history-section {
+  padding: 100px 20px;
+  background: linear-gradient(
+    145deg,
+    #002d40,
+    #001b34
+  ); /* Fondo verde oscuro a azul marino */
   color: #ffffff;
-  padding: 600px 40px; /* Duplicamos el área */
-}
-
-#columns h2 {
-  font-size: 2.8rem; /* Tamaño ligeramente mayor */
-  font-weight: bold;
-  margin-bottom: 70px;
-  color: #4facfe;
-  text-transform: uppercase;
-}
-
-/* Contenedor de Tarjetas */
-.column-card-container {
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.column-card {
-  background: #003b80; /* Contrasta con el background */
-  color: white;
-  padding: 40px;
-  border-radius: 25px; /* Bordes más redondeados */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  height: 100%; /* Asegura consistencia en altura */
   position: relative;
+  overflow: hidden;
 }
 
-.column-card i {
-  color: #4facfe;
-  margin-bottom: 15px;
-  font-size: 3.5rem; /* Ícono más prominente */
-}
-
-.column-card h5 {
-  font-size: 1.2rem; /* Texto más pequeño */
-  font-weight: bold;
-  margin-bottom: 20px;
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #a3c4f3; /* Azul claro */
   text-transform: uppercase;
 }
 
-/* Contenido Expandido */
-.expanded-content {
-  margin-top: 20px;
-  text-align: left;
-  background: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
-  padding: 25px;
-  border-radius: 15px;
+/* Línea del Tiempo */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.expanded-content p {
-  font-size: 1rem;
-  color: #ffffff;
-  line-height: 1.5;
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  text-align: center;
+  width: 250px; /* Cajas más pequeñas */
 }
 
-/* Tarjeta Hover */
-.column-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+.timeline-year {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2e8b57; /* Verde olivo oscuro */
+  margin-bottom: 10px;
+}
+
+.timeline-box {
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco translúcido */
+  color: #0a1432; /* Azul oscuro */
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.timeline-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #305fba; /* Azul medio */
+}
+
+.timeline-description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #333;
+}
+
+/* Flecha */
+.timeline-arrow {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, #4facfe, #a3c4f3);
+  margin: 10px 0;
+}
+
+/* Animación de Lighting */
+.lighting-animation {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #4facfe, transparent);
+  animation: lighting 3s infinite linear;
+  z-index: -1;
+}
+
+@keyframes lighting {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
-  #columns {
-    padding: 400px 20px; /* Ajuste para pantallas más pequeñas */
+  .timeline-item {
+    width: 90%;
   }
 
-  .column-card {
-    padding: 20px;
-  }
-
-  .column-card i {
-    font-size: 3rem; /* Ícono más pequeño en pantallas pequeñas */
-  }
-
-  .expanded-content p {
-    font-size: 0.9rem;
+  .timeline-box {
+    padding: 10px 15px;
   }
 }
 
@@ -507,26 +538,30 @@ blockquote {
 
 /* Tamaño personalizado para el logotipo */
 .logo-small {
-  width: 100px; /* Cambia el tamaño según lo necesario */
-  height: auto; /* Mantén la proporción de aspecto */
+  height: 350px; /* Aumenta la altura para hacerlo más grande */
+  width: auto; /* Ajusta automáticamente el ancho */
+  max-width: 100%; /* Evita que exceda el contenedor */
   margin-top: 10px; /* Espaciado opcional */
+  object-fit: contain; /* Mantén las proporciones sin recortar */
   transition: transform 0.2s ease-in-out; /* Para animación */
 }
 
 /* Efecto hover para el logotipo */
 .logo-small:hover {
-  transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
+  transform: scale(1.8); /* Aumenta ligeramente el tamaño al pasar el mouse */
 }
 
+/* Tamaño personalizado en pantallas medianas */
 @media (max-width: 768px) {
   .logo-small {
-    width: 80px; /* Más pequeño en pantallas pequeñas */
+    height: 250px; /* Ajusta el tamaño para pantallas medianas */
   }
 }
 
+/* Tamaño personalizado en pantallas pequeñas */
 @media (max-width: 480px) {
   .logo-small {
-    width: 60px; /* Aún más pequeño en pantallas muy pequeñas */
+    height: 150px; /* Ajusta el tamaño para pantallas pequeñas */
   }
 }
 

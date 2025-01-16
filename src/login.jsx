@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./assets/css/login.css";
-import logoMxcBlanco from "./assets/images/logomxc-blanco.png"; // Asegúrate de que la ruta sea correcta
+import logoTara from "./assets/images/tarabanalogo.png"; // Asegúrate de que la ruta sea correcta
 
 const Login = () => {
   return (
@@ -10,8 +10,8 @@ const Login = () => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <img
-            src={logoMxcBlanco}
-            alt="Logotipo de MXC Capital"
+            src={logoTara}
+            alt="Logotipo de tarabana"
             className="logo-small"
           />
           <Link to="/" className="navbar-brand"></Link>

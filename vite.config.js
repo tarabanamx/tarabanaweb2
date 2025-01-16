@@ -3,13 +3,11 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        // Opciones globales para SCSS (si aplica)
-        additionalData: `@import "./src/assets/styles/variables.scss";`,
-      },
+  base: "/", // Ajusta esto si despliegas en un subdirectorio
+  build: {
+    rollupOptions: {
+      input: "./src/main.jsx", // Archivo de entrada principal
     },
   },
-  base: "/", // Ajusta esto si despliegas en un subdirectorio
+  assetsInclude: ["**/*.jpg", "**/*.png"], // Incluir imágenes en el build
 });
